@@ -2,10 +2,10 @@
 
 // In CPP03 type deduction only means for template.
 
-template <typename T>  // template parameters
+template <typename T, int count>  // template parameters
 void print_sth(T t) // parameters type
 {
-    printf("T: %s \n", t.to_string().c_str());
+    printf("T: %s %d\n", t.to_string().c_str(), count);
 }
 
 template <typename T> // template parameters: int
@@ -25,13 +25,16 @@ struct A
 
 int main()
 {
-    print_sth<A>(A());
+    print_sth<A, 4>(A());
 
-    int ii = 10;
+    int ii = 20;
     int jj = 20;
     int& i = ii;
     int& j = jj;
 
-    change<int>(i, j);
-    printf("i: %d  j: %d \n", i, j);
+    change<int&>(i, j); // I deduce the type int& -> int& i, int& j
+    printf("i: %d  j: %d \n", i, j); // i: 110  j: 120
+
+    change(i, j);  // deduce type with compiler -> int& i, int j
+    printf("i: %d  j: %d \n", i, j); // i: 210  j: 120
 }
