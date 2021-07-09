@@ -64,7 +64,7 @@ public:
  * Third party
  */
 
-template <MultiFunctionPrinter T>
+template <ScannerOrPrinter T>
 class User
 {
 public:
@@ -73,12 +73,12 @@ public:
     {
     }
 
-    void print()
+    void print() requires IPrinter<T>
     {
         all_in_one_printer->print();
     }
 
-    void scan()
+    void scan() requires IScanner<T>
     {
         all_in_one_printer->scan();
     }
@@ -89,7 +89,15 @@ private:
 
 int main()
 {
-    User user(std::make_shared<AllInOnePrinter>());
-    user.print();
-    user.scan();
+    User user1(std::make_shared<AllInOnePrinter>());
+    user1.print();
+    user1.scan();
+
+    User user2(std::make_shared<Scanner>());
+    // user2.print();
+    user2.scan();
+
+    User user3(std::make_shared<Printer>());
+    user3.print();
+    // user2.scan();
 }
