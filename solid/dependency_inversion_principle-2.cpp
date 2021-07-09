@@ -1,17 +1,17 @@
 #include <iostream>
 #include <memory>
 
-/**********************************************
- * Higher-level
- * providing some coherent set of services though a well-defined and controlled interface
- */
-
 /**  ++ Advantage ++
  *      Does not have Overhead of polymorphism.
  *      Extensible without modification --> OCP principle.
  *      DIP principle has been observed.
  * 
  *   ++ Disadvantage
+ */
+
+/**********************************************
+ * Higher-level
+ * providing some coherent set of services though a well-defined and controlled interface
  */
 
 // Controlled interface
