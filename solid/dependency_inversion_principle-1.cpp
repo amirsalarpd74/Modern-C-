@@ -67,7 +67,7 @@ public:
 
     void turn_on() override
     {
-        printf("Lamp turn OFF. \n");
+        printf("Lamp turn ON. \n");
     }
 };
 
@@ -82,7 +82,7 @@ public:
 
     void turn_on() override
     {
-        printf("TV turn OFF. \n");
+        printf("TV turn ON. \n");
     }
 };
 
