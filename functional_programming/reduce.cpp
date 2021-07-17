@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <functional>
+#include <algorithm>
 #include <ranges>
+#include <numeric>
 
 using namespace std;
 
@@ -14,11 +16,10 @@ int main()
     };
 
     vector<int> in_collection{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    vector<int> out_collection;
+    int result = 0;
 
     // No side effect
-    std::copy_if(in_collection.begin(), in_collection.end(), back_inserter(out_collection), 
-            [](const int& val){ return val % 3 == 0; });
+    result = std::accumulate(in_collection.begin(), in_collection.end(), 0, [](int total, int val){ return total + val; });
 
-    render(out_collection);
+    printf("result: %d \n", result);
 }

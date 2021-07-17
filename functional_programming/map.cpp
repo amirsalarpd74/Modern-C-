@@ -16,9 +16,8 @@ int main()
     vector<int> in_collection{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     vector<int> out_collection;
 
-    // No side effect
-    std::copy_if(in_collection.begin(), in_collection.end(), back_inserter(out_collection), 
-            [](const int& val){ return val % 3 == 0; });
+    std::transform(in_collection.begin(), in_collection.end(), back_inserter(out_collection), 
+         [](const int& val){ return val * 3;});
 
     render(out_collection);
 }
