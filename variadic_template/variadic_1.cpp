@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 
 template <typename N>
 auto summer(N n)
